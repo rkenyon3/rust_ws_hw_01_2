@@ -27,6 +27,7 @@ fn main() {
     // buffer to read file into
     let mut buffer: [u8; 100] = [0; 100];
 
+    // read the file contents in chunks, and store program characters in program_chars
     let mut byte_count = reader.read(&mut buffer[..]).unwrap();
     while byte_count > 0 {
         let mut i = 0;
@@ -41,6 +42,7 @@ fn main() {
         byte_count = reader.read(&mut buffer[..]).unwrap();
     }
 
+    // print the bf program to the screen
     for c in program_chars.iter() {
         print!("{c}");
     }
